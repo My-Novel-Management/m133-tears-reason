@@ -19,13 +19,13 @@ from config import ASSET
 #
 #   1. Initialize
 #   2. Story memo
-#   3. Structure    - 1/8
+#   3. Structure    - 1/8: 1K
 #   4. Spec
-#   5. Plot         - 1/4
+#   5. Plot         - 1/4: 2K
 #   6. Scenes
-#   7. Conte        - 1/2
+#   7. Conte        - 1/2: 4K
 #   8. Layout
-#   9. Draft        - 1/1
+#   9. Draft        - 1/1: 8K
 #
 ################################################################
 
