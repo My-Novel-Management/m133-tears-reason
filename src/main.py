@@ -30,34 +30,81 @@ from config import ASSET
 ################################################################
 
 # Constant
-TITLE = "作品タイトル"
-MAJOR, MINOR, MICRO = 0, 0, 1
-COPY = "コピィ"
-ONELINE = "一行説明"
-OUTLINE = "あらすじ"
-THEME = "テーマ"
-GENRE = "ジャンル"
-TARGET = "ターゲット（年代）"
-SIZE = "規定サイズ"
-CONTEST_INFO = "コンテスト情報"
-CAUTION = "注意事項"
-NOTE = "備考"
+TITLE = "彼女の涙の理由はね"
+MAJOR, MINOR, MICRO = 0, 1, 0
+COPY = "その涙の本当の理由は、違っていた"
+ONELINE = "映画館で一人泣いていた女の涙を採取したいと、謎の女が話しかけた"
+OUTLINE = "約8000字の短編。映画館で泣いていた女性に謎の女が「あなたの涙を調べさせて」と言ってきた。その女は涙の研究をしていると説明した"
+THEME = "女が流す涙の理由"
+GENRE = "恋愛／ミステリ"
+TARGET = "20-50years"
+SIZE = "8K"
+CONTEST_INFO = "妄想コンテスト「私が泣いた理由」"
+CAUTION = ""
+NOTE = ""
 SITES = ["エブリスタ", "小説家になろう", "ノベルアッププラス", "カクヨム"]
-TAGS = ["ドラマ",]
-RELEASED = (1, 1, 2020)
+TAGS = ["恋愛", "ミステリ", "失恋"]
+RELEASED = (9, 20, 2020)
 
 
 # Episodes
-def ep_xxx(w: World):
-    return w.episode('episode_title',
-            outline="description")
-
-
 def ch_main(w: World):
     return w.chapter('main',
             )
 
 
+# Notes
+def writer_note(w: World):
+    return w.writer_note("覚書",
+            )
+
+def plot_note(w: World):
+    return w.writer_note("プロットメモ",
+            "映画を見て、一人泣いている女がいる",
+            "彼女に近づいて、涙を分けて欲しいと頼む",
+            "女は涙の研究をしていた",
+            "涙の分析を終えて、彼女に言う",
+            "失恋が悲しくて泣いていたんじゃないのねと",
+            "女の涙の本当の理由は失恋して悲しい自分にひたっていただけだった",
+            "分析する価値もない涙だと吐き捨てた",
+            "視点は泣いている女側で",
+            )
+
+def chara_note(w: World):
+    return w.writer_note("人物メモ",
+            "・映画館で泣く女",
+            "・涙調査官",
+            )
+
+def stage_note(w: World):
+    return w.writer_note("舞台メモ",
+            "映画館",
+            "女が一人で泣きながら見ている映画が、全然泣ける映画じゃないのがいい",
+            "研究所",
+            "すごく怪しげなマンションの一室がいいかな。その方が「何この人感」が強まる",
+            )
+
+def theme_note(w: World):
+    return w.writer_note("テーマメモ",
+            "泣くのは誰のためなのか？",
+            "涙を流すというのは",
+            "涙の味が違う。感情の涙と普段流す涙では味が異なる（成分が異なる）",
+            "泪橋という、別れの名所があった江戸",
+            "この映画館は通称泪館。そこで映画を見ると別れると言われている",
+            "そういう場所も使って「別れ」を計画した",
+            "だからそこには別れた後の女性が涙を流すために映画を見るという噂話があった",
+            "でもそれは学生時代の彼女が流した噂が、そのまま残って都市伝説になってしまったものだった",
+            )
+
+def motif_note(w: World):
+    return w.writer_note("モチーフ",
+            "涙",
+            "噂",
+            "研究",
+            "都市伝説",
+            )
+
+# Main
 def main(): # pragma: no cover
     w = World.create_world(f"{TITLE}")
     w.config.set_version(MAJOR, MINOR, MICRO)
@@ -79,6 +126,12 @@ def main(): # pragma: no cover
     w.config.set_taginfos(*TAGS)
     w.config.set_released(*RELEASED)
     return w.run(
+            writer_note(w),
+            plot_note(w),
+            chara_note(w),
+            stage_note(w),
+            theme_note(w),
+            motif_note(w),
             ch_main(w),
             )
 
