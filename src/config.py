@@ -33,6 +33,7 @@ ASSET = {
             ),
         "WORDS": (
             # (tag / name / cate / info)
+            ("yakata", "泪館"),
             ),
         "RUBIS": (
             # (origin / rubi / exclusions / always)

@@ -31,7 +31,7 @@ from config import ASSET
 
 # Constant
 TITLE = "彼女の涙の理由はね"
-MAJOR, MINOR, MICRO = 0, 2, 0
+MAJOR, MINOR, MICRO = 0, 3, 0
 COPY = "その涙の本当の理由は、違っていた"
 ONELINE = "映画館で一人泣いていた女の涙を採取したいと、謎の女が話しかけた"
 OUTLINE = "約8000字の短編。映画館で泣いていた女性に謎の女が「あなたの涙を調べさせて」と言ってきた。その女は涙の研究をしていると説明した"
@@ -54,12 +54,16 @@ def ch_main(w: World):
             "泪館の噂から",
             "それを聞いてそこで泣いてる女の涙を採取してきてという。あることを証明したいと",
             "いつも無理難題を言われる$yukio",
-            w.plot_setup("$yuriは泪館と一部で呼ばれている映画館で、一人泣いていた"),
-            w.plot_turnpoint("その$yuriに「涙を調べさせてほしい」と$misaが声を掛ける"),
-            w.plot_develop("$yuriは$misaの研究所に行って涙を調べる"),
-            w.plot_develop("分析結果が出る間、$yuriは自分の失恋話を語る"),
-            w.plot_turnpoint("分析結果はその涙に「悲しい成分」は含まれてないと示す"),
+            w.plot_setup("$yukioは研究所で働いている"),
+            w.plot_setup("$yakataという、そこで映画を見ると別れるという都市伝説のある映画館の噂を話す"),
+            w.plot_turnpoint("$misaに命じられてそこで泣いている女の涙のサンプルを取ってくることになる"),
+            w.plot_develop("$yuriが$yakataで一人泣きながらアクション映画を見ていた"),
+            w.plot_develop("$yukioは調べさせてほしいとお願いする"),
+            w.plot_develop("事情を聞き、$yuriは分析結果が聞きたいとついてくる"),
+            w.plot_develop("$yuriはいかに$akioが酷い男だったか語る"),
+            w.plot_turnpoint("分析結果が出て$misaは$yuriに「悲しんでなどいない」と突きつける"),
             w.plot_resolve("$yuriの涙はただ自分を可哀想な女に見せたいだけの偽物だった"),
+            w.plot_resolve("その上、その噂を流したのは$yuriだと看破する"),
             "構造がちょい単調かも。どんでん返しがないとただの「本気で泣いてたんじゃないやん」で終わる",
             "研究者である$misaを主人公にする？",
             "いや助手役を主人公にするか。その方が採取のときが面白いし、共感者となる",
