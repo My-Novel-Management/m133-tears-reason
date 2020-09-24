@@ -21,6 +21,7 @@ ASSET = {
             ("Cinema", "映画館", "Nagoya"),# 三越映画劇場モデル
             ("Manshion", "マンション", "Nagoya"),
             ("Labo", "研究所", "Nagoya"),
+            ("InTrain", "電車車内", "Nagoya"),
             ),
         "DAYS": (
             # (tag / name / month / day / year)

@@ -12,7 +12,10 @@ from storybuilder.assets import basic
 from storybuilder.assets import common_rubi
 from config import ASSET
 # import scenes
-# from scenes import xxx
+from scenes import Cinema
+from scenes import InTrain
+from scenes import Labo
+from scenes import Station
 
 
 ################################################################
@@ -31,7 +34,7 @@ from config import ASSET
 
 # Constant
 TITLE = "彼女の涙の理由はね"
-MAJOR, MINOR, MICRO = 0, 5, 0
+MAJOR, MINOR, MICRO = 0, 6, 0
 COPY = "その涙の本当の理由は、違っていた"
 ONELINE = "映画館で一人泣いていた女の涙を採取したいと、謎の女が話しかけた"
 OUTLINE = "約8000字の短編。映画館で泣いていた女性に謎の女が「あなたの涙を調べさせて」と言ってきた。その女は涙の研究をしていると説明した"
@@ -50,45 +53,26 @@ RELEASED = (9, 27, 2020)
 # Episodes
 def ep_first_talk(w: World):
     return w.episode("最初の会話（映画館の噂）",
-            w.plot_note("$yukioは研究所で$misaの助手をやっていた"),
-            w.plot_note("最近の$misaは涙の研究にはまっていて、入室した途端に$yukioから涙を採取する"),
-            w.plot_note("$misaは涙の種類について語る"),
-            w.plot_note("感情が動いて流す涙と普段流している涙には明確な違いがあり、味も違うと言い出す"),
-            w.plot_note("$yukioが$yakataの都市伝説について語る"),
-            w.plot_note("$yakataで映画を見たカップルは別れるという噂だった"),
-            w.plot_note("$misaはそこで泣いている女はどうせ利用しているだけで本物の涙を流す女はいないと断言する"),
+            Labo.every_morning(w),
+            Labo.urban_legend(w),
             )
 
 def ep_get_tears(w: World):
     return w.episode("涙の採取",
-            w.plot_note("$misaに言われ$yakataにやってくる$yukio"),
-            w.plot_note("そこでアクション映画にもかかわらず泣いている女がいた"),
-            w.plot_note("$yukioは$yuriに涙を調べさせてほしいと頼み込む"),
-            w.plot_note("最初こそ不審に思われたが$yuriは別れた事情を聞くという約束と引き換えに承諾してくれた"),
+            Cinema.woman_tears(w),
             )
 
 def ep_depart_story(w: World):
     return w.episode("別れた事情",
-            w.plot_note("涙を採取し、分析に回そうとする$yukioに、一緒に研究所に行くという$yuri"),
-            w.plot_note("バスで移動する間、$yuriは別れた事情について話す"),
-            w.plot_note("$yuriは下着メーカーに勤めていた男性$akioと恋愛関係になった"),
-            w.plot_note("彼女からすると嫌な男としか感じなかったらしい"),
-            w.plot_note("それでも男のステータスと金払いの良さなどに魅力を感じて、徐々に関係が深まった"),
-            w.plot_note("しかし付き合ううちに彼が女を道具としてしか見ていなかったことが分かった"),
-            w.plot_note("そこに最初から最後まで恋愛感情がなかったことが分かり、別れた"),
-            w.plot_note("聞いているとどう考えても泣くような話には、$yukioは思えなかった"),
+            Cinema.her_situation(w),
+            InTrain.her_situation2(w),
             )
 
 def ep_truth(w: World):
     return w.episode("分析結果と真相と",
-            w.plot_note("ラボにやってくると$misaと$yuriは険悪な雰囲気がかもしだされる"),
-            w.plot_note("どうやら大学時代の知り合いらしく、$misaは$yuriの涙が全て嘘だと言い切った"),
-            w.plot_note("分析結果が出て、彼女の涙はほとんどが水だったという$misa"),
-            w.plot_note("$yuriは本気の涙だったと力説するが、結果は覆らないという$misa"),
-            w.plot_note("$misaは$yuriが今流している涙も分析し、それもほぼ涙で感情の涙ではないと説明する"),
-            w.plot_note("いつからか「悲しい」という感情が失われていた女"),
-            w.plot_note("悲しいという「装置」だったと、あの$yakataについて話す"),
-            w.plot_note("$yuriは最初で最後の涙を流したのが、あの$yakataだったと語った"),
+            Labo.acquaintaince(w),
+            Labo.analyzed(w),
+            Labo.lost_sadness(w),
             )
 
 
