@@ -7,10 +7,10 @@ Story Config
 ASSET = {
         "PERSONS": (
             # (tag / name / full / age (birth) / job / call / info)
-            ("yuri", "ユリ", "シラサギ,ユリ", 32,(1,1), "female", "会社員", "me:わたし"),
-            ('misa', 'ミサ', 'アイジョウ,ミサ', 37,(1,1), 'female', '研究員', "me:私"),
-            ("yukio", "ユキオ", "マキタ,ユキオ", 25,(1,1), "male", "助手", "me:僕"),
-            ("akio", "アキオ", "イルマ,アキオ", 40,(1,1), "male", "会社員", "me:俺"),
+            ("yuri", "悠里", "白鷺,悠里", 32,(1,1), "female", "会社員", "me:わたし"),
+            ('misa', '美彩', '桂木,美彩', 37,(1,1), 'female', '研究員', "me:私"),
+            ("yukio", "幸男", "蒔田,幸男", 25,(1,1), "male", "助手", "me:僕"),
+            ("akio", "昭雄", "入間,昭雄", 40,(1,1), "male", "会社員", "me:俺"),
             ),
         "STAGES": (
             # (tag / name / parent / (geometry) / info)
@@ -19,6 +19,7 @@ ASSET = {
             ("Station", "駅", "Nagoya"),
             ("Subway", "地下鉄", "Nagoya"),
             ("Cinema", "映画館", "Nagoya"),# 三越映画劇場モデル
+            ("Cafe", "喫茶店", "Nagoya"),
             ("Manshion", "マンション", "Nagoya"),
             ("Labo", "研究所", "Nagoya"),
             ("InTrain", "電車車内", "Nagoya"),
@@ -35,6 +36,8 @@ ASSET = {
         "WORDS": (
             # (tag / name / cate / info)
             ("yakata", "泪館"),
+            ("sns", "ＳＮＳ"),
+            ("line", "ＬＩＮＥ"),
             ),
         "RUBIS": (
             # (origin / rubi / exclusions / always)

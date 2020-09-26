@@ -12,6 +12,7 @@ from storybuilder.assets import basic
 from storybuilder.assets import common_rubi
 from config import ASSET
 # import scenes
+from scenes import Cafe
 from scenes import Cinema
 from scenes import InTrain
 from scenes import Labo
@@ -34,7 +35,7 @@ from scenes import Station
 
 # Constant
 TITLE = "彼女の涙の理由はね"
-MAJOR, MINOR, MICRO = 0, 6, 0
+MAJOR, MINOR, MICRO = 0, 8, 0
 COPY = "その涙の本当の理由は、違っていた"
 ONELINE = "映画館で一人泣いていた女の涙を採取したいと、謎の女が話しかけた"
 OUTLINE = "約8000字の短編。映画館で泣いていた女性に謎の女が「あなたの涙を調べさせて」と言ってきた。その女は涙の研究をしていると説明した"
@@ -64,8 +65,9 @@ def ep_get_tears(w: World):
 
 def ep_depart_story(w: World):
     return w.episode("別れた事情",
-            Cinema.her_situation(w),
+            Cafe.her_situation(w),
             InTrain.her_situation2(w),
+            Station.many_people(w),
             )
 
 def ep_truth(w: World):
