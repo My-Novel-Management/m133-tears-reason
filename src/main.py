@@ -34,8 +34,8 @@ from scenes import Station
 ################################################################
 
 # Constant
-TITLE = "彼女の涙の理由はね"
-MAJOR, MINOR, MICRO = 0, 8, 0
+TITLE = "悲しみの落ちる場所"
+MAJOR, MINOR, MICRO = 0, 9, 0
 COPY = "その涙の本当の理由は、違っていた"
 ONELINE = "映画館で一人泣いていた女の涙を採取したいと、謎の女が話しかけた"
 OUTLINE = "約8000字の短編。映画館で泣いていた女性に謎の女が「あなたの涙を調べさせて」と言ってきた。その女は涙の研究をしていると説明した"
@@ -66,8 +66,8 @@ def ep_get_tears(w: World):
 def ep_depart_story(w: World):
     return w.episode("別れた事情",
             Cafe.her_situation(w),
-            InTrain.her_situation2(w),
-            Station.many_people(w),
+            InTrain.her_situation2(w).omit(),
+            Station.many_people(w).omit(),
             )
 
 def ep_truth(w: World):
@@ -94,6 +94,7 @@ def ch_main(w: World):
             ep_get_tears(w),
             ep_depart_story(w),
             ep_truth(w),
+            w.symbol("（了）"),
             )
 
 
