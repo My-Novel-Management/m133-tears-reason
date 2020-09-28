@@ -35,25 +35,26 @@ from scenes import Station
 
 # Constant
 TITLE = "悲しみの落ちる場所"
-MAJOR, MINOR, MICRO = 0, 9, 0
-COPY = "その涙の本当の理由は、違っていた"
-ONELINE = "映画館で一人泣いていた女の涙を採取したいと、謎の女が話しかけた"
-OUTLINE = "約8000字の短編。映画館で泣いていた女性に謎の女が「あなたの涙を調べさせて」と言ってきた。その女は涙の研究をしていると説明した"
+MAJOR, MINOR, MICRO = 1, 0, 0
+COPY = "彼女の涙の本当の理由は、そうじゃなかった"
+ONELINE = "約8000字の恋愛ミステリ短編。研究所に勤める男はカップルが別れると噂の映画館で一人泣いていた女の涙を採取する"
+OUTLINE = "約8000字の短編。研究所に勤める蒔田幸男は上司の桂木から言われ、カップルが別れるという噂のある映画館に出向き、一人で泣いていた女性の涙を採取する。彼女はその代価として自分の失恋話を聞くように幸男に提案するが"
 THEME = "女が流す涙の理由"
-GENRE = "恋愛／ミステリ"
+GENRE = "ヒューマンドラマ／恋愛／ミステリ"
 TARGET = "20-50years"
 SIZE = "8K"
 CONTEST_INFO = "妄想コンテスト「私が泣いた理由」"
 CAUTION = ""
 NOTE = ""
 SITES = ["エブリスタ", "小説家になろう", "ノベルアッププラス", "カクヨム"]
-TAGS = ["恋愛", "ミステリ", "失恋"]
+TAGS = ["恋愛", "ミステリ", "失恋", "映画館", "都市伝説"]
 RELEASED = (9, 27, 2020)
 
 
 # Episodes
 def ep_first_talk(w: World):
     return w.episode("最初の会話（映画館の噂）",
+            w.symbol("１．理不尽の湧く場所"),
             Labo.every_morning(w),
             Labo.urban_legend(w),
             )
@@ -65,6 +66,7 @@ def ep_get_tears(w: World):
 
 def ep_depart_story(w: World):
     return w.episode("別れた事情",
+            w.symbol("２．彼女の事情を聞く場所"),
             Cafe.her_situation(w),
             InTrain.her_situation2(w).omit(),
             Station.many_people(w).omit(),
@@ -72,6 +74,7 @@ def ep_depart_story(w: World):
 
 def ep_truth(w: World):
     return w.episode("分析結果と真相と",
+            w.symbol("３．悲しみの落ちる場所"),
             Labo.acquaintaince(w),
             Labo.analyzed(w),
             Labo.lost_sadness(w),
